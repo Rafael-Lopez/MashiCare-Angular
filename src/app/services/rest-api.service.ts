@@ -23,12 +23,22 @@ export class RestApiService {
   }
 
   public addProduct(product: Product): Observable<any> {
+    const headers = this.getHeaders();
+    const body = { name: product.name, seller: product.seller, description: product.description, price: product.price };
+    return this.http.post(environment.rooturl + URL_ENDPOINTS.POST_MEDICINE_URL, body, {headers, responseType: 'json'});
+  }
+
+  public deleteProduct(productId: number): Observable<any> {
+    const headers = this.getHeaders();
+    return this.http.delete(environment.rooturl + URL_ENDPOINTS.DELETE_MEDICINE_URL + productId, {headers, responseType: 'json'});
+  }
+
+  private getHeaders(): any {
     const userDetailsStr = window.sessionStorage.getItem('userDetails');
     const userDetails = JSON.parse(userDetailsStr || '{}');
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(userDetails.username + ':' + userDetails.password)
     });
-    const body = { name: product.name, seller: product.seller, description: product.description, price: product.price };
-    return this.http.post(environment.rooturl + URL_ENDPOINTS.POST_MEDICINE_URL, body, {headers, responseType: 'json'});
+    return headers;
   }
 }

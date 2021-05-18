@@ -6,5 +6,6 @@ export class Product {
   public seller: any;
   public icon: any;
   public addCallback: any;
+  public deleteCallback: any;
   constructor() { }
 }

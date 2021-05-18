@@ -8,5 +8,8 @@
     <div *ngIf="product?.addCallback" >
       <button type="button" class="btn btn-primary" (click)="product?.addCallback()">New Product</button>
     </div>
+    <div *ngIf="product?.deleteCallback" >
+      <button type="button" class="btn btn-danger" (click)="product?.deleteCallback(product?.id)">Delete</button>
+    </div>
   </div>
 </div>
