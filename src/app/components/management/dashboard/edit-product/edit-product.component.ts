@@ -21,7 +21,8 @@ export class EditProductComponent implements OnInit {
         name: new FormControl(this.selectedProduct?.name),
         description: new FormControl(this.selectedProduct?.description),
         seller: new FormControl(this.selectedProduct?.seller),
-        price: new FormControl(this.selectedProduct?.price)
+        price: new FormControl(this.selectedProduct?.price),
+        enabled: new FormControl(this.selectedProduct?.enabled),
       });
     } else {
       this.selectedProduct = null;
@@ -29,7 +30,8 @@ export class EditProductComponent implements OnInit {
         name: new FormControl(''),
         description: new FormControl(''),
         seller: new FormControl(''),
-        price: new FormControl(0)
+        price: new FormControl(0),
+        enabled: new FormControl(true)
       });
     }
   }
@@ -68,6 +70,7 @@ export class EditProductComponent implements OnInit {
     product.seller = this.addProductForm.value.seller;
     product.description = this.addProductForm.value.description;
     product.price = this.addProductForm.value.price;
+    product.enabled = this.addProductForm.value.enabled;
 
     return product;
   }

@@ -35,6 +35,15 @@
             <input type="number" class="form-control" name="price" id="price" formControlName="price" placeholder="Price"/>
           </div>
         </div>
+        <div class="d-flex justify-content-center p-2">
+          <input class="form-check-input mx-3" type="checkbox" name="newProduct" id="newProduct" value="newProduct"
+                 formControlName="enabled" checked *ngIf="selectedProduct === null">
+          <input class="form-check-input mx-3" type="checkbox" name="updateProduct" id="updateProduct" value="updateProduct"
+                 formControlName="enabled" *ngIf="selectedProduct">
+          <label class="form-check-label" for="newProduct">
+            Enabled
+          </label>
+        </div>
         <div class="row p-2 text-center" *ngIf="!selectedProduct">
           <div class="col-6">
             <button type="submit" class="btn btn-primary mb-3" (click)="addProduct()">Add Product</button>

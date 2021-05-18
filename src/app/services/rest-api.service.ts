@@ -24,7 +24,9 @@ export class RestApiService {
 
   public addProduct(product: Product): Observable<any> {
     const headers = this.getHeaders();
-    const body = { name: product.name, seller: product.seller, description: product.description, price: product.price };
+    const body = {
+      name: product.name, seller: product.seller, description: product.description, price: product.price, enabled: product.enabled
+    };
     return this.http.post(environment.rooturl + URL_ENDPOINTS.POST_MEDICINE_URL, body, {headers, responseType: 'json'});
   }
 
@@ -35,7 +37,9 @@ export class RestApiService {
 
   public updateProduct(product: Product): Observable<any> {
     const headers = this.getHeaders();
-    const body = { id: product.id, name: product.name, seller: product.seller, description: product.description, price: product.price };
+    const body = {
+      name: product.name, seller: product.seller, description: product.description, price: product.price, enabled: product.enabled
+    };
     return this.http.put(environment.rooturl + URL_ENDPOINTS.UPDATE_MEDICINE_URL + '/' + product.id, body, {headers, responseType: 'json'});
   }
 
