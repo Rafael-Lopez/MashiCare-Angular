@@ -1,12 +1,18 @@
 import { TestBed } from '@angular/core/testing';
 
 import { RestApiService } from './rest-api.service';
+import {RouterTestingModule} from '@angular/router/testing';
+import {HttpClientModule} from '@angular/common/http';
 
 describe('RestApiService', () => {
   let service: RestApiService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [
+        HttpClientModule
+      ]
+    });
     service = TestBed.inject(RestApiService);
   });
 
