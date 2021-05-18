@@ -8,8 +8,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/management/dashboard/dashboard.component';
-import { ProductComponent } from './products/product/product.component';
-import { ProductsComponent } from './products/products.component';
+import { ProductComponent } from './components/products/product/product.component';
+import { ProductsComponent } from './components/products/products.component';
 import { AddProductComponent } from './components/management/dashboard/add-product/add-product.component';
 
 @NgModule({
