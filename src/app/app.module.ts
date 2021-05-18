@@ -6,10 +6,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import {FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/management/dashboard/dashboard.component';
 import { ProductComponent } from './products/product/product.component';
 import { ProductsComponent } from './products/products.component';
+import { AddProductComponent } from './components/management/dashboard/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +18,16 @@ import { ProductsComponent } from './products/products.component';
     LoginComponent,
     DashboardComponent,
     ProductComponent,
-    ProductsComponent
+    ProductsComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,10 @@
 export class Product {
-  constructor(
-    public name: string, public description: string, public price: number, public id?: number, public seller?: string
-  ) { }
+  public name: any;
+  public description: any;
+  public price: any;
+  public id: any;
+  public seller: any;
+  public icon: any;
+  public addCallback: any;
+  constructor() { }
 }

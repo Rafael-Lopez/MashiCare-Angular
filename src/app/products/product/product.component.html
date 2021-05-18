@@ -1,9 +1,12 @@
 <div class="card m-3 text-center border border-primary">
   <div class="card-body p-2">
-    <h5 class="card-title bg-primary p-2 mb-0 text-white">{{product?.name}}</h5>
-    <h5 class="card-subtitle bg-secondary p-2 text-white">{{product?.seller}}</h5>
-    <fa-icon style="font-size: 5rem;" [icon]="icon"></fa-icon>
-    <p class="card-text">{{product?.description}}</p>
-    <p class="card-text">${{product?.price}}</p>
+    <h5 class="card-title bg-primary p-2 mb-0 text-white" *ngIf="product?.name">{{product?.name}}</h5>
+    <h5 class="card-subtitle bg-secondary p-2 text-white" *ngIf="product?.seller">{{product?.seller}}</h5>
+    <fa-icon style="font-size: 5rem;" [icon]="product?.icon"></fa-icon>
+    <p class="card-text" *ngIf="product?.description">{{product?.description}}</p>
+    <p class="card-text" *ngIf="product?.price">${{product?.price}}</p>
+    <div *ngIf="product?.addCallback" >
+      <button type="button" class="btn btn-primary" (click)="product?.addCallback()">New Product</button>
+    </div>
   </div>
 </div>

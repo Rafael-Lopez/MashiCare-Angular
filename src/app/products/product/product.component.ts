@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {faPrescriptionBottleAlt} from '@fortawesome/free-solid-svg-icons';
 
 import {Product} from '../../models/Product';
 
@@ -10,11 +9,9 @@ import {Product} from '../../models/Product';
 })
 export class ProductComponent implements OnInit {
   @Input() product: Product | undefined;
-  icon = faPrescriptionBottleAlt;
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }
