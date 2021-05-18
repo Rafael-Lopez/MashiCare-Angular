@@ -1,4 +1,4 @@
-<h1 class="text-center">Enter Product Details</h1>
+<h1 class="text-center">Product Details</h1>
 <div class="d-flex justify-content-center">
   <div class="row">
     <div class="col">
@@ -13,7 +13,7 @@
         </div>
         <div class="row p-2">
           <div class="col-3">
-            <label for="name">Seller</label>
+            <label for="seller">Seller</label>
           </div>
           <div class="col-9">
             <input type="text" class="form-control" name="seller" id="seller" formControlName="seller" placeholder="Seller"/>
@@ -35,9 +35,17 @@
             <input type="number" class="form-control" name="price" id="price" formControlName="price" placeholder="Price"/>
           </div>
         </div>
-        <div class="row p-2 text-center">
+        <div class="row p-2 text-center" *ngIf="!selectedProduct">
           <div class="col-6">
-            <button type="submit" class="btn btn-primary mb-3" (click)="onSubmit()">Add Product</button>
+            <button type="submit" class="btn btn-primary mb-3" (click)="addProduct()">Add Product</button>
+          </div>
+          <div class="col-6">
+            <button type="submit" class="btn btn-danger mb-3" (click)="cancel()">Cancel</button>
+          </div>
+        </div>
+        <div class="row p-2 text-center" *ngIf="selectedProduct">
+          <div class="col-6">
+            <button type="submit" class="btn btn-primary mb-3" (click)="updateProduct()">Edit Product</button>
           </div>
           <div class="col-6">
             <button type="submit" class="btn btn-danger mb-3" (click)="cancel()">Cancel</button>

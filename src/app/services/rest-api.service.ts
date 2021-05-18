@@ -30,7 +30,13 @@ export class RestApiService {
 
   public deleteProduct(productId: number): Observable<any> {
     const headers = this.getHeaders();
-    return this.http.delete(environment.rooturl + URL_ENDPOINTS.DELETE_MEDICINE_URL + productId, {headers, responseType: 'json'});
+    return this.http.delete(environment.rooturl + URL_ENDPOINTS.DELETE_MEDICINE_URL + '/' + productId, {headers, responseType: 'json'});
+  }
+
+  public updateProduct(product: Product): Observable<any> {
+    const headers = this.getHeaders();
+    const body = { id: product.id, name: product.name, seller: product.seller, description: product.description, price: product.price };
+    return this.http.put(environment.rooturl + URL_ENDPOINTS.UPDATE_MEDICINE_URL + '/' + product.id, body, {headers, responseType: 'json'});
   }
 
   private getHeaders(): any {

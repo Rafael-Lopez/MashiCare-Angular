@@ -26,6 +26,7 @@ export class DashboardComponent implements OnInit {
         data.forEach((product: any) => {
           product.icon = faPrescriptionBottleAlt;
           product.deleteCallback = this.deleteProduct;
+          product.updateCallback = this.updateProduct;
           this.products.push(product);
         });
 
@@ -37,7 +38,7 @@ export class DashboardComponent implements OnInit {
   }
 
   addProduct = () => {
-    this.router.navigate(['management/dashboard/new-product']);
+    this.router.navigate(['management/dashboard/edit-product']);
   }
 
   deleteProduct = (productId: number) => {
@@ -46,6 +47,11 @@ export class DashboardComponent implements OnInit {
           this.getProducts();
         },
         error => alert('Error while deleting product!'));
+  }
+
+  updateProduct = (product: any) => {
+    const productStr = JSON.stringify(product);
+    this.router.navigateByUrl('management/dashboard/edit-product', { state: { product: productStr } });
   }
 
 }

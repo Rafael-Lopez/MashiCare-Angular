@@ -8,8 +8,13 @@
     <div *ngIf="product?.addCallback" >
       <button type="button" class="btn btn-primary" (click)="product?.addCallback()">New Product</button>
     </div>
-    <div *ngIf="product?.deleteCallback" >
-      <button type="button" class="btn btn-danger" (click)="product?.deleteCallback(product?.id)">Delete</button>
+    <div class="row p-2 text-center">
+      <div class="col-6" *ngIf="product?.updateCallback">
+        <button type="button" class="btn btn-success" (click)="product?.updateCallback(product)">Update</button>
+      </div>
+      <div class="col-6" *ngIf="product?.deleteCallback">
+        <button type="button" class="btn btn-danger" (click)="product?.deleteCallback(product?.id)">Delete</button>
+      </div>
     </div>
   </div>
 </div>

@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/management/dashboard/dashboard.component';
 import { ProductComponent } from './components/products/product/product.component';
 import { ProductsComponent } from './components/products/products.component';
-import { AddProductComponent } from './components/management/dashboard/add-product/add-product.component';
+import { EditProductComponent } from './components/management/dashboard/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { AddProductComponent } from './components/management/dashboard/add-produ
     DashboardComponent,
     ProductComponent,
     ProductsComponent,
-    AddProductComponent
+    EditProductComponent
   ],
   imports: [
     BrowserModule,
