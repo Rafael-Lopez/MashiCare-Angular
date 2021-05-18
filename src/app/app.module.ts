@@ -11,6 +11,8 @@ import { DashboardComponent } from './components/management/dashboard/dashboard.
 import { ProductComponent } from './components/products/product/product.component';
 import { ProductsComponent } from './components/products/products.component';
 import { EditProductComponent } from './components/management/dashboard/edit-product/edit-product.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ShopComponent } from './components/shop/shop.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { EditProductComponent } from './components/management/dashboard/edit-pro
     DashboardComponent,
     ProductComponent,
     ProductsComponent,
-    EditProductComponent
+    EditProductComponent,
+    NavbarComponent,
+    ShopComponent
   ],
   imports: [
     BrowserModule,

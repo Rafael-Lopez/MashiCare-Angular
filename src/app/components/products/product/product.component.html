@@ -1,11 +1,13 @@
-<div class="card m-3 text-center border border-primary">
+<!--    Only admins can update, so if update is an option, that means we are in the management portal-->
+<div class="card m-3 text-center border border-primary" *ngIf="product?.updateCallback || product?.enabled">
   <div class="card-body p-2">
     <h5 class="card-title bg-primary p-2 mb-0 text-white" *ngIf="product?.name">{{product?.name}}</h5>
     <h5 class="card-subtitle bg-secondary p-2 text-white" *ngIf="product?.seller">{{product?.seller}}</h5>
     <fa-icon style="font-size: 5rem;" [icon]="product?.icon"></fa-icon>
     <p class="card-text" *ngIf="product?.description">{{product?.description}}</p>
     <p class="card-text" *ngIf="product?.price">${{product?.price}}</p>
-    <div class="d-flex justify-content-center p-2" *ngIf="product?.enabled != null">
+    <!--    Only admins can update, so if update is an option, that means we are in the management portal-->
+    <div class="d-flex justify-content-center p-2" *ngIf="product?.updateCallback && product?.enabled != null">
       <input class="form-check-input mx-3" type="checkbox" name="enabled" id="enabled" value="enabled" checked disabled *ngIf="product?.enabled">
       <input class="form-check-input mx-3" type="checkbox" name="disabled" id="disabled" value="disabled" disabled *ngIf="!product?.enabled">
       <label class="form-check-label" for="enabled">
