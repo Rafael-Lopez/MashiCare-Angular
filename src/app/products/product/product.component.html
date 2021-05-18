@@ -1,0 +1,9 @@
+<div class="card m-3 text-center border border-primary">
+  <div class="card-body p-2">
+    <h5 class="card-title bg-primary p-2 mb-0 text-white">{{product?.name}}</h5>
+    <h5 class="card-subtitle bg-secondary p-2 text-white">{{product?.seller}}</h5>
+    <fa-icon style="font-size: 5rem;" [icon]="icon"></fa-icon>
+    <p class="card-text">{{product?.description}}</p>
+    <p class="card-text">${{product?.price}}</p>
+  </div>
+</div>

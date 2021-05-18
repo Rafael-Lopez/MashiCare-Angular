@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
         responseData.authorities.forEach( (authority: string) => authorities.add(authority));
         authenticatedUser.authorities = authorities;
         window.sessionStorage.setItem('userDetails', JSON.stringify(authenticatedUser));
-        // this.router.navigate(['dashboard']);
+        this.router.navigate(['management/dashboard']);
       }, error => {
         console.log(error);
       });

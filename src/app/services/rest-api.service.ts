@@ -16,4 +16,8 @@ export class RestApiService {
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(user.username + ':' + user.password)});
     return this.http.get(environment.rooturl + AppConstants.LOGIN_API_URL, {headers, responseType: 'json'});
   }
+
+  public getProducts(): Observable<any> {
+    return this.http.get(environment.rooturl + AppConstants.GET_MEDICINES_URL, {responseType: 'json'});
+  }
 }
