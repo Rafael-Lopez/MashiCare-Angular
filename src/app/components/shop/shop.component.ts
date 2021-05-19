@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {faPlus, faPrescriptionBottleAlt} from '@fortawesome/free-solid-svg-icons';
-import {Product} from '../../models/Product';
+import {faPrescriptionBottleAlt} from '@fortawesome/free-solid-svg-icons';
 import {RestApiService} from '../../services/rest-api.service';
 import {User} from '../../models/User';
 import {UserAuthenticationService} from '../../services/user-authentication.service';
@@ -12,6 +11,7 @@ import {UserAuthenticationService} from '../../services/user-authentication.serv
 })
 export class ShopComponent implements OnInit {
   products: any;
+  filteredProducts: any;
   authenticatedUser: User | null;
 
   constructor(private userAuthenticationService: UserAuthenticationService, private restApiService: RestApiService) {
@@ -28,12 +28,22 @@ export class ShopComponent implements OnInit {
     this.restApiService.getProducts()
       .subscribe(data => {
         this.products = [];
+        this.filteredProducts = [];
 
         data.forEach((product: any) => {
           product.icon = faPrescriptionBottleAlt;
           this.products.push(product);
+          this.filteredProducts.push(product);
         });
       });
+  }
+
+  resetProducts = () => {
+    this.filteredProducts = this.products;
+  }
+
+  onFilteredProducts = (filteredProducts: any) => {
+    this.filteredProducts = filteredProducts;
   }
 
 }

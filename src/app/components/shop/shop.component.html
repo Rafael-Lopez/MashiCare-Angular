@@ -1,1 +1,8 @@
-<app-products [products]="products" [authenticatedUser]="authenticatedUser"></app-products>
+<div class="m-3">
+  <app-search [authenticatedUser]="authenticatedUser"
+              [products]="products"
+              [resetProducts]="resetProducts"
+              (filteredProducts)="onFilteredProducts($event)">
+  </app-search>
+  <app-products [products]="filteredProducts" [authenticatedUser]="authenticatedUser"></app-products>
+</div>
