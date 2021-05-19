@@ -20,17 +20,29 @@ export class LoginComponent implements OnInit {
 
   validateUser(): void {
     const user = new User(this.username, this.password);
+    let isAdmin = false;
+
     this.restApiService.login(user).subscribe(
       responseData => {
         const authenticatedUser = new User(user.username, user.password);
         authenticatedUser.authenticated = responseData.authenticated;
         const authorities = new Array<string>();
+
         responseData.authorities.forEach( (authorityObject: any) => {
           authorities.push(authorityObject.authority);
+          if (authorityObject.authority === 'ROLE_ADMIN') {
+            isAdmin = true;
+          }
         });
+
         authenticatedUser.authorities = authorities;
         window.sessionStorage.setItem('userDetails', JSON.stringify(authenticatedUser));
-        this.router.navigate(['management/dashboard']);
+
+        if (isAdmin) {
+          this.router.navigate(['management/dashboard']);
+        } else {
+          this.router.navigate(['shop']);
+        }
       }, error => {
         console.log(error);
       });

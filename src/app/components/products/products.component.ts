@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {User} from '../../models/User';
 
 @Component({
   selector: 'app-products',
@@ -7,7 +8,16 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
   @Input() products: any | undefined;
-  constructor() { }
+  user: User | null;
+
+  constructor() {
+    const userDetailsStr = window.sessionStorage.getItem('userDetails');
+    if (userDetailsStr !== null) {
+      this.user = (JSON.parse(userDetailsStr || '{}'));
+    } else {
+      this.user = null;
+    }
+  }
 
   ngOnInit(): void {
   }
