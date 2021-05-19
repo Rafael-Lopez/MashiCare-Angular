@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 import {Product} from '../../../models/Product';
+import {User} from '../../../models/User';
 
 @Component({
   selector: 'app-product',
@@ -9,6 +10,7 @@ import {Product} from '../../../models/Product';
 })
 export class ProductComponent implements OnInit {
   @Input() product: Product | undefined;
+  @Input() authenticatedUser: User | any;
 
   constructor() { }
 

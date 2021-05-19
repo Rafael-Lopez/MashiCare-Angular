@@ -5,13 +5,18 @@ import {environment} from '../../environments/environment';
 import {URL_ENDPOINTS} from '../constants/constants';
 import {User} from '../models/User';
 import {Product} from '../models/Product';
+import {UserAuthenticationService} from './user-authentication.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RestApiService {
+  authenticatedUser: User | null;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private userAuthenticationService: UserAuthenticationService) {
+    this.userAuthenticationService.sharedAuthenticatedUser.subscribe(authenticatedUser => this.authenticatedUser = authenticatedUser);
+    this.authenticatedUser = null;
+  }
 
   public login(user: User): Observable<any> {
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(user.username + ':' + user.password)});
@@ -44,10 +49,8 @@ export class RestApiService {
   }
 
   private getHeaders(): any {
-    const userDetailsStr = window.sessionStorage.getItem('userDetails');
-    const userDetails = JSON.parse(userDetailsStr || '{}');
     const headers = new HttpHeaders({
-      Authorization: 'Basic ' + btoa(userDetails.username + ':' + userDetails.password)
+      Authorization: 'Basic ' + btoa(this.authenticatedUser?.username + ':' + this.authenticatedUser?.password)
     });
     return headers;
   }

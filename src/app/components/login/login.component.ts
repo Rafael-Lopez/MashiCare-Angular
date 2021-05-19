@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../../models/User';
 import {RestApiService} from '../../services/rest-api.service';
 import {Router} from '@angular/router';
+import {UserAuthenticationService} from '../../services/user-authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
   username: string | undefined;
   password: string | undefined;
 
-  constructor(private restApiService: RestApiService, private router: Router) {
+  constructor(private userAuthenticationService: UserAuthenticationService,
+              private restApiService: RestApiService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -36,7 +38,8 @@ export class LoginComponent implements OnInit {
         });
 
         authenticatedUser.authorities = authorities;
-        window.sessionStorage.setItem('userDetails', JSON.stringify(authenticatedUser));
+
+        this.userAuthenticationService.nextAuthenticatedUser(authenticatedUser);
 
         if (isAdmin) {
           this.router.navigate(['management/dashboard']);

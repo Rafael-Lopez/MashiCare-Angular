@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {User} from '../../models/User';
+import {UserAuthenticationService} from '../../services/user-authentication.service';
 
 @Component({
   selector: 'app-products',
@@ -8,18 +9,15 @@ import {User} from '../../models/User';
 })
 export class ProductsComponent implements OnInit {
   @Input() products: any | undefined;
-  user: User | null;
+  authenticatedUser: User | null;
 
-  constructor() {
-    const userDetailsStr = window.sessionStorage.getItem('userDetails');
-    if (userDetailsStr !== null) {
-      this.user = (JSON.parse(userDetailsStr || '{}'));
-    } else {
-      this.user = null;
-    }
+  constructor(private userAuthenticationService: UserAuthenticationService) {
+    this.authenticatedUser = null;
   }
 
   ngOnInit(): void {
+    this.userAuthenticationService.sharedAuthenticatedUser.subscribe(
+      authenticatedUser => this.authenticatedUser = authenticatedUser);
   }
 
 }
