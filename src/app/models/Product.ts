@@ -9,5 +9,7 @@ export class Product {
   public addCallback: any;
   public updateCallback: any;
   public deleteCallback: any;
+  public addProductToCartCallback: any;
+
   constructor() { }
 }

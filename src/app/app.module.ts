@@ -14,6 +14,7 @@ import { EditProductComponent } from './components/management/dashboard/edit-pro
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ShopComponent } from './components/shop/shop.component';
 import { SearchComponent } from './components/shop/search/search.component';
+import { CartComponent } from './components/shop/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SearchComponent } from './components/shop/search/search.component';
     EditProductComponent,
     NavbarComponent,
     ShopComponent,
-    SearchComponent
+    SearchComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

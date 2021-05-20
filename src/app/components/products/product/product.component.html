@@ -27,5 +27,8 @@
         <button type="button" class="btn btn-danger" (click)="product?.deleteCallback(product?.id)">Delete</button>
       </div>
     </div>
+    <div *ngIf="product?.addProductToCartCallback" >
+      <a class="btn btn-primary" (click)="product?.addProductToCartCallback(product)">Add to Cart</a>
+    </div>
   </div>
 </div>

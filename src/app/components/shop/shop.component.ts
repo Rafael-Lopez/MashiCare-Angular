@@ -3,6 +3,8 @@ import {faPrescriptionBottleAlt} from '@fortawesome/free-solid-svg-icons';
 import {RestApiService} from '../../services/rest-api.service';
 import {User} from '../../models/User';
 import {UserAuthenticationService} from '../../services/user-authentication.service';
+import {Product} from '../../models/Product';
+import {CartService} from '../../services/cart.service';
 
 @Component({
   selector: 'app-shop',
@@ -14,7 +16,9 @@ export class ShopComponent implements OnInit {
   filteredProducts: any;
   authenticatedUser: User | null;
 
-  constructor(private userAuthenticationService: UserAuthenticationService, private restApiService: RestApiService) {
+  constructor(private userAuthenticationService: UserAuthenticationService,
+              private restApiService: RestApiService,
+              private cartService: CartService) {
     this.authenticatedUser = null;
   }
 
@@ -32,10 +36,16 @@ export class ShopComponent implements OnInit {
 
         data.forEach((product: any) => {
           product.icon = faPrescriptionBottleAlt;
+          product.addProductToCartCallback = this.addProductToCart;
+
           this.products.push(product);
           this.filteredProducts.push(product);
         });
       });
+  }
+
+  addProductToCart = (product: Product) => {
+    this.cartService.addProduct(product);
   }
 
   resetProducts = () => {
