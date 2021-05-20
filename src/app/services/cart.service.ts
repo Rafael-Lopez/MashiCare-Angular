@@ -16,4 +16,8 @@ export class CartService {
     // @ts-ignore
     this.cart.next([...currentProducts, product]);
   }
+
+  clearCart = () => {
+    this.cart.next([]);
+  }
 }

@@ -25,4 +25,8 @@ export class CartComponent implements OnInit {
     });
   }
 
+  doClearCart = () => {
+    this.cartService.clearCart();
+  }
+
 }
