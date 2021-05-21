@@ -23,8 +23,14 @@
     </tbody>
   </table>
   <div class="row">
-    <div class="col text-right">
+    <div class="col text-end">
       <button type="button" class="btn btn-danger" (click)="doClearCart()">Clear Cart</button>
+    </div>
+    <div class="col text-start" *ngIf="authenticatedUser !== null">
+      <button type="button" class="btn btn-success" (click)="doCheckout()">Checkout</button>
+    </div>
+    <div class="col text-start" *ngIf="authenticatedUser === null">
+      <button type="button" class="btn btn-success" (click)="redirectToLogin()">Login to Checkout</button>
     </div>
   </div>
 </div>

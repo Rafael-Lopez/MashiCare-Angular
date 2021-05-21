@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../../models/User';
 import {RestApiService} from '../../services/rest-api.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {UserAuthenticationService} from '../../services/user-authentication.service';
 
 @Component({
@@ -12,9 +12,12 @@ import {UserAuthenticationService} from '../../services/user-authentication.serv
 export class LoginComponent implements OnInit {
   username: string | undefined;
   password: string | undefined;
+  redirect = null;
 
   constructor(private userAuthenticationService: UserAuthenticationService,
-              private restApiService: RestApiService, private router: Router) {
+              private restApiService: RestApiService, private router: Router,
+              private activatedRoute: ActivatedRoute) {
+    this.redirect = this.activatedRoute.snapshot.paramMap.get('redirect');
   }
 
   ngOnInit(): void {
@@ -44,7 +47,11 @@ export class LoginComponent implements OnInit {
         if (isAdmin) {
           this.router.navigate(['management/dashboard']);
         } else {
-          this.router.navigate(['shop']);
+          if (this.redirect) {
+            this.router.navigate(['user/checkout']);
+          } else {
+            this.router.navigate(['shop']);
+          }
         }
       }, error => {
         console.log(error);
