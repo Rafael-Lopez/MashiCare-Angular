@@ -1,0 +1,49 @@
+<div class="text-center">
+  <h1 class="font-weight-bold">Order History</h1>
+  <div class="m-5">
+    <div class="row">
+      <div class="alert alert-danger text-center" role="alert" *ngIf="orders === undefined || orders.length === 0">
+        There are no past orders to display
+      </div>
+      <div class="container" *ngIf="orders !== undefined && orders.length !== 0">
+        <div *ngFor="let order of orders">
+
+          <p>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              Order: {{order.date}}
+            </button>
+          </p>
+          <div class="collapse" id="collapseExample">
+            <table class="table">
+              <thead class="thead-dark">
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Seller</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let medicines of order.medicineOrders">
+                <td>{{medicines.medicine.name}}</td>
+                <td>{{medicines.medicine.seller}}</td>
+                <td>{{medicines.medicine.price}}</td>
+                <td>{{medicines.quantity}}</td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="alert alert-secondary" role="alert">
+              Total: ${{order.total}}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="row p-3">
+      <div class="col">
+        <button type="submit" class="btn btn-danger" (click)="redirect('shop')">Back to Shop</button>
+      </div>
+    </div>
+  </div>
+</div>

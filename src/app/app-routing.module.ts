@@ -6,6 +6,7 @@ import {EditProductComponent} from './components/management/dashboard/edit-produ
 import {ShopComponent} from './components/shop/shop.component';
 import {CartComponent} from './components/shop/cart/cart.component';
 import {CheckoutComponent} from './components/shop/checkout/checkout.component';
+import {OrderHistoryComponent} from './components/shop/order-history/order-history.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'shop', pathMatch: 'full' },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'user/login/:redirect', component: LoginComponent },
   { path: 'user/cart', component: CartComponent },
   { path: 'user/checkout', component: CheckoutComponent },
+  { path: 'user/order-history', component: OrderHistoryComponent },
 ];
 
 @NgModule({

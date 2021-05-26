@@ -48,6 +48,12 @@ export class RestApiService {
     return this.http.put(environment.rooturl + URL_ENDPOINTS.UPDATE_MEDICINE_URL + '/' + product.id, body, {headers, responseType: 'json'});
   }
 
+  public getOrders(): Observable<any> {
+    const headers = this.getHeaders();
+    return this.http.get(environment.rooturl + URL_ENDPOINTS.GET_ORDERS_URL + '/' + this.authenticatedUser?.username,
+      {headers, responseType: 'json'});
+  }
+
   private getHeaders(): any {
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(this.authenticatedUser?.username + ':' + this.authenticatedUser?.password)

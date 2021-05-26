@@ -4,4 +4,5 @@ export const URL_ENDPOINTS = {
   POST_MEDICINE_URL: '/medicine',
   DELETE_MEDICINE_URL: '/medicine',
   UPDATE_MEDICINE_URL: '/medicine',
+  GET_ORDERS_URL: '/orders',
 };

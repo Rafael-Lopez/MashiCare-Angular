@@ -19,6 +19,10 @@
             <span class="badge bg-danger" *ngIf="itemsInCart !== 0">{{itemsInCart}}</span>
           </a>
         </li>
+        <li class="nav-item" *ngIf="(authenticatedUser !== null &&
+         authenticatedUser?.authorities?.indexOf('ROLE_USER') > -1)">
+          <a class="nav-link" role="button" (click)="redirect('user/order-history')">Order History</a>
+        </li>
       </ul>
     </div>
   </div>
