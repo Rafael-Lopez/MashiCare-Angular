@@ -23,6 +23,13 @@ export class RestApiService {
     return this.http.get(environment.rooturl + URL_ENDPOINTS.LOGIN_API_URL, {headers, responseType: 'json'});
   }
 
+  public addUser(user: User): Observable<any> {
+    const body = {
+      username: user.username, password: user.password
+    };
+    return this.http.post(environment.rooturl + URL_ENDPOINTS.POST_USER_URL, body, {responseType: 'json'});
+  }
+
   public getProducts(): Observable<any> {
     return this.http.get(environment.rooturl + URL_ENDPOINTS.GET_MEDICINES_URL, {responseType: 'json'});
   }
