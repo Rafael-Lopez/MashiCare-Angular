@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
   // Pending to be updated
-  rooturl : 'http://localhost:8081'
+  rooturl : '172.17.0.2:8081'
 };
