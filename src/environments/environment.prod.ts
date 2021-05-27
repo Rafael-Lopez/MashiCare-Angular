@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
   // Pending to be updated
-  rooturl : '172.17.0.2:8081'
+  rooturl : 'http://ec2-18-223-20-217.us-east-2.compute.amazonaws.com:8081'
 };
