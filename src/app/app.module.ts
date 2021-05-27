@@ -17,6 +17,7 @@ import { SearchComponent } from './components/shop/search/search.component';
 import { CartComponent } from './components/shop/cart/cart.component';
 import { CheckoutComponent } from './components/shop/checkout/checkout.component';
 import { OrderHistoryComponent } from './components/shop/order-history/order-history.component';
+import { ConfirmationComponent } from './components/shop/confirmation/confirmation.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { OrderHistoryComponent } from './components/shop/order-history/order-his
     SearchComponent,
     CartComponent,
     CheckoutComponent,
-    OrderHistoryComponent
+    OrderHistoryComponent,
+    ConfirmationComponent
   ],
   imports: [
     BrowserModule,

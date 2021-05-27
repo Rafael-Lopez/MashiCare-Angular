@@ -54,6 +54,15 @@ export class RestApiService {
       {headers, responseType: 'json'});
   }
 
+  public addOrder(order: any): Observable<any> {
+    const headers = this.getHeaders();
+    const body = {
+      products: [...order], username: this.authenticatedUser?.username
+    };
+    console.log(body);
+    return this.http.post(environment.rooturl + URL_ENDPOINTS.POST_ORDER_URL, body, {headers, responseType: 'json'});
+  }
+
   private getHeaders(): any {
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(this.authenticatedUser?.username + ':' + this.authenticatedUser?.password)
