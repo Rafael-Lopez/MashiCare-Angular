@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  rooturl : 'http://ec2-18-223-20-217.us-east-2.compute.amazonaws.com:8081'
+  rooturl : 'http://ec2-3-23-61-217.us-east-2.compute.amazonaws.com:8081'
 };
 
 /*
