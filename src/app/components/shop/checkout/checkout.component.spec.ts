@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CheckoutComponent } from './checkout.component';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterTestingModule} from '@angular/router/testing';
+import {FormsModule} from '@angular/forms';
 
 describe('CheckoutComponent', () => {
   let component: CheckoutComponent;
@@ -12,7 +13,8 @@ describe('CheckoutComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         HttpClientModule,
-        RouterTestingModule
+        RouterTestingModule,
+        FormsModule
       ],
       declarations: [ CheckoutComponent ]
     })

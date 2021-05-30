@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { EditProductComponent } from './edit-product.component';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterTestingModule} from '@angular/router/testing';
+import {ReactiveFormsModule} from '@angular/forms';
 
 describe('EditProductComponent', () => {
   let component: EditProductComponent;
@@ -12,7 +13,8 @@ describe('EditProductComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         HttpClientModule,
-        RouterTestingModule
+        RouterTestingModule,
+        ReactiveFormsModule
       ],
       declarations: [ EditProductComponent ]
     })
@@ -26,6 +28,6 @@ describe('EditProductComponent', () => {
   });
 
   it('should create', () => {
-    // expect(component).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 });
